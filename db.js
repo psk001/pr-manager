@@ -8,6 +8,7 @@ const connectToDatabase = async () => {
     useUnifiedTopology: true
   });
 
+  console.log('mongo uri', connectionUri);
   const db = mongoose.connection;
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
   db.once("open", () => {
