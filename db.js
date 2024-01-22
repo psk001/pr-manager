@@ -1,6 +1,6 @@
 // db.js
 const mongoose = require("mongoose");
-const connectionUri = process.env.MONGO_URI_L;
+const connectionUri = process.env.MONGO_URI;
 
 const connectToDatabase = async () => {
   mongoose.connect(connectionUri, {
@@ -8,7 +8,6 @@ const connectToDatabase = async () => {
     useUnifiedTopology: true
   });
 
-  console.log('mongo uri', connectionUri);
   const db = mongoose.connection;
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
   db.once("open", () => {
